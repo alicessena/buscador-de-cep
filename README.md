@@ -17,15 +17,15 @@ Este é um aplicativo simples para buscar informações de um CEP usando **React
   <tr>
     <td>
         <h3>Sucesso</h3>
-        <a href=""><img src="./src/assets/sucesso.gif" width="250px"></a>
+        <a href=""><img src="./src/assets/sucesso.gif" width="230px"></a>
     </td>
       <td>
         <h3> Campo Vazio </h3>
-        <a href=""><img src="./src/assets/warning.gif" width="250px"></a>
+        <a href=""><img src="./src/assets/warning.gif" width="230px"></a>
     </td>
     <td>
       <h3> CEP Inválido </h3>
-      <a href=""><img src="./src/assets/error.gif" width="250px" ></a>
+      <a href=""><img src="./src/assets/error.gif" width="230px" ></a>
     </td>
   </tr>
 
