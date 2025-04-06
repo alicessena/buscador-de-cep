@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Search, LoaderCircle, Moon, Sun } from "lucide-react";
 import "./style.css";
-import { toast } from "react-toastify";
-import api from "./service/api";
+import { toast, ToastOptions, TypeOptions } from "react-toastify";
+import Api from './service/api'
+
 
 interface CepData {
   cep: string;
@@ -12,6 +13,7 @@ interface CepData {
   localidade: string;
   uf: string;
   erro?: boolean;
+  
 }
 
 export function App() {
@@ -23,8 +25,9 @@ export function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
-  const notify = (msg: string, toastType: string) =>
-    toast(msg, { type: toastType });
+  const notify = (msg: string, toastType: TypeOptions) => {
+    toast(msg, { type: toastType } as ToastOptions);
+  };
 
   useEffect(() => {
     localStorage.setItem("cepSearchHistory", JSON.stringify(searchHistory));
@@ -38,7 +41,7 @@ export function App() {
 
     try {
       setLoading(true);
-      const response = await api.get<CepData>(`${input}/json`);
+      const response = await Api.get<CepData>(`${input}/json`);
 
       if (response.data.erro) {
         notify("CEP não encontrado!", "error");
