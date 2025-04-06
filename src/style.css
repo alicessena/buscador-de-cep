@@ -1,0 +1,251 @@
+:root {
+  --primary: #6c5ce7;
+  --primary-hover: #5649c0;
+  --secondary: #00cec9;
+  --card-bg: #ffffff;
+  --text-color: #2d3436;
+  --text-light: #636e72;
+  --bg-color: #f5f6fa;
+  --border-color: #dfe6e9;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+  --radius: 12px;
+}
+
+[data-theme="dark"] {
+  --primary: #a29bfe;
+  --primary-hover: #817bde;
+  --secondary: #00b894;
+  --card-bg: #2d3436;
+  --text-color: #f5f6fa;
+  --text-light: #b2bec3;
+  --bg-color: #1e272e;
+  --border-color: #3b4a54;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+.container {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.svg {
+  color: var(--primary);
+}
+
+.containerInput {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+input {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  outline: none;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+.buttonSearch {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.buttonSearch:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.loading-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+  animation: spin 1000ms infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.main {
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin-top: 1.5rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.main h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.main span {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.history {
+  margin-top: 2rem;
+}
+
+.history h3 {
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.history ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.history li {
+  background-color: var(--card-bg);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.history li:hover {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--card-bg);
+  color: var(--text-light);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    padding: 1.5rem;
+    border-radius: calc(var(--radius) * 0.75);
+  }
+
+  .theme-toggle {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: var(--card-bg);
+    color: var(--text-light);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+  }
+
+  .containerInput {
+    flex-direction: column;
+  }
+
+  .buttonSearch {
+    padding: 0.75rem;
+    width: 100%;
+  }
+
+  .history li,
+  ul {
+    flex-direction: column;
+  }
+}
