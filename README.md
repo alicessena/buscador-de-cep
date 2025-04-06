@@ -1,4 +1,4 @@
-# Buscador de CEP Avançado
+# Buscador de CEP 
 
 Um aplicativo moderno para consulta de CEPs com React, TypeScript e armazenamento local. Oferece uma experiência elegante com tema claro/escuro e histórico de buscas.
 
